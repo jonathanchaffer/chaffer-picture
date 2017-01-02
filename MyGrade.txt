@@ -1,0 +1,12 @@
+My Self-evaluation:
+-----------------------
+Correctness: 	 _/10
+Style:   	     _/6
+Documentation    _/6
+Learning Gains: __/8
+-----------------------
+Total:			__/30
+-----------------------
+Hours spent:  
+-----------------------
+Justification:
