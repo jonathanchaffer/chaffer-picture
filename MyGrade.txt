@@ -1,12 +1,25 @@
 My Self-evaluation:
 -----------------------
-Correctness: 	 _/10
-Style:   	     _/6
-Documentation    _/6
-Learning Gains: __/8
+Correctness: 	 9/10
+Style:   	     6/6
+Documentation    6/6
+Learning Gains:  8/8
 -----------------------
-Total:			__/30
+Total:			29/30
 -----------------------
-Hours spent:  15
+Hours spent:  16
 -----------------------
 Justification:
+My code is neat and organized, styled correctly, and easy to read.
+It contains Javadoc-style comments for all classes and methods, as
+well as inline comments within longer methods to describe what 
+certain portions of my code are doing. The code works as expected,
+aside from a small hangup with the Spinner class in which it
+does not always respond to mouse events such as shift-clicking,
+dragging, and right-clicking (I think it has something to do with
+the timer). Going in with almost zero prior experience with GUIs, 
+I've definitely learned a lot. I've met all the requirements 
+stated in the rubric, and in addition, I believe I have gone above
+and beyond the minimum requirements, as I have used a timer in 
+order to implement animation into the GUI. For these reasons, I 
+believe I should get a 29/30 on this assignment.

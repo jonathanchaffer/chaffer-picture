@@ -1,3 +1,14 @@
+
+/**
+ * Notebook.java
+ * Author: Jonathan Chaffer
+ * Date: January 22, 2018
+ * Version: 1.0
+ * 
+ * A class that models notebooks.
+ *
+ */
+
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -12,6 +23,22 @@ public class Notebook extends DeskObject {
 	private String title;
 
 	// constructors
+	/**
+	 * Constructor for objects of class Notebook.
+	 * 
+	 * @param x
+	 *            The x-position.
+	 * @param y
+	 *            The y-position.
+	 * @param width
+	 *            The width.
+	 * @param height
+	 *            The height.
+	 * @param color
+	 *            The color.
+	 * @param title
+	 *            The text to be placed on the label.
+	 */
 	public Notebook(int x, int y, int width, int height, Color color, String title) {
 		super(x, y);
 		this.width = width;
@@ -21,12 +48,24 @@ public class Notebook extends DeskObject {
 	}
 
 	// overrides
+	/**
+	 * Checks whether the notebook contains the mouse.
+	 * 
+	 * @return true If the notebook contains the mouse.
+	 * @return false If the notebook does not contain the mouse.
+	 */
 	@Override
 	public boolean containsMouse() {
 		return (getMouseX() >= getX() && getMouseX() <= getX() + width)
 				&& (getMouseY() >= getY() && getMouseY() <= getY() + height);
 	}
 
+	/**
+	 * Draws the notebook.
+	 * 
+	 * @param g
+	 *            Graphics object to use.
+	 */
 	@Override
 	public void draw(Graphics g) {
 
@@ -73,6 +112,9 @@ public class Notebook extends DeskObject {
 	}
 
 	// accessors
+	/**
+	 * @return The notebook's color.
+	 */
 	public Color getColor() {
 		return color;
 	}

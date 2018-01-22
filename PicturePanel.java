@@ -2,15 +2,16 @@
 /**
  * PicturePanel.java
  * Author: Chuck Cusack
+ * Author: Jonathan Chaffer
  * Date: August 22, 2007
- * Version: 2.0
+ * Version: 3.0
  * 
- * Modified August 22, 2008
+ * Modified January 22, 2018
  *
- *An almost blank picture.
- *It just draws a few things.
+ * An interactive picture of a desk.
  *
  */
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
@@ -31,8 +32,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 /**
- * A class draws a picture on a panel
- *
+ * A class that draws a picture on a panel.
  */
 public class PicturePanel extends JPanel {
 	ArrayList<DeskObject> deskObjects = new ArrayList<DeskObject>();
@@ -46,7 +46,7 @@ public class PicturePanel extends JPanel {
 		MouseHandler mh = new MouseHandler();
 		addMouseListener(mh);
 		addMouseMotionListener(mh);
-		
+
 		Timer timer = new Timer(1, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent ae) {
@@ -72,8 +72,6 @@ public class PicturePanel extends JPanel {
 	 * This method is called whenever the applet needs to be drawn. This is the
 	 * most important method of this class, since without it, we don't see
 	 * anything.
-	 * 
-	 * This is the method where you will most likely do all of your coding.
 	 */
 	public void paintComponent(Graphics g) {
 
@@ -109,15 +107,19 @@ public class PicturePanel extends JPanel {
 
 	}
 
-	// ---------------------------------------------------------------
-	// A class to handle the mouse events for the applet.
-	// This is one of several ways of handling mouse events.
-	// If you do not want/need to handle mouse events, delete the following
-	// code.
-	//
+	/**
+	 * Class that handles mouse events on the PicturePanel.
+	 */
 	private class MouseHandler extends MouseAdapter implements MouseMotionListener {
 		Random r = new Random();
 
+		/**
+		 * Handler for mouse clicked. Shift-click removes a desk object.
+		 * Right-click starts/stops a spinner.
+		 * 
+		 * @param e
+		 *            The MouseEvent.
+		 */
 		public void mouseClicked(MouseEvent e) {
 			if (e.isShiftDown()) {
 				Iterator<DeskObject> it = deskObjects.iterator();
@@ -168,6 +170,12 @@ public class PicturePanel extends JPanel {
 		public void mouseExited(MouseEvent e) {
 		}
 
+		/**
+		 * Handler for mouse pressed. Puts an anchor on a desk object.
+		 * 
+		 * @param e
+		 *            The MouseEvent.
+		 */
 		public void mousePressed(MouseEvent e) {
 			DeskObject.setMousePointer(e.getPoint());
 			for (DeskObject deskObject : deskObjects) {
@@ -177,6 +185,12 @@ public class PicturePanel extends JPanel {
 			}
 		}
 
+		/**
+		 * Handler for mouse released. Releases an anchor on all desk objects.
+		 * 
+		 * @param e
+		 *            The MouseEvent.
+		 */
 		public void mouseReleased(MouseEvent e) {
 			for (DeskObject deskObject : deskObjects) {
 				deskObject.release();
@@ -186,6 +200,13 @@ public class PicturePanel extends JPanel {
 		public void mouseMoved(MouseEvent e) {
 		}
 
+		/**
+		 * Handler for mouse dragged. Repositions all desk objects when mouse is
+		 * dragged.
+		 * 
+		 * @param e
+		 *            The MouseEvent.
+		 */
 		public void mouseDragged(MouseEvent e) {
 			DeskObject.setMousePointer(e.getPoint());
 			for (DeskObject deskObject : deskObjects) {

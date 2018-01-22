@@ -1,3 +1,14 @@
+
+/**
+ * Laptop.java
+ * Author: Jonathan Chaffer
+ * Date: January 22, 2018
+ * Version: 1.0
+ * 
+ * A class that models a laptop.
+ *
+ */
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -10,6 +21,18 @@ public class Laptop extends DeskObject {
 	private static final int depth = 10;
 
 	// constructors
+	/**
+	 * Constructor for objects of class Laptop.
+	 * 
+	 * @param x
+	 *            The x-position.
+	 * @param y
+	 *            The y-position.
+	 * @param width
+	 *            The width.
+	 * @param height
+	 *            The height.
+	 */
 	public Laptop(int x, int y, int width, int height) {
 		super(x, y);
 		this.width = width;
@@ -17,12 +40,24 @@ public class Laptop extends DeskObject {
 	}
 
 	// overrides
+	/**
+	 * Checks whether the laptop contains the mouse.
+	 * 
+	 * @return true If the laptop contains the mouse.
+	 * @return false If the laptop does not contain the mouse.
+	 */
 	@Override
 	boolean containsMouse() {
 		return (getMouseX() >= getX() && getMouseX() <= getX() + width)
 				&& (getMouseY() >= getY() && getMouseY() <= getY() + height);
 	}
 
+	/**
+	 * Draws the laptop.
+	 * 
+	 * @param g
+	 *            Graphics object to use.
+	 */
 	@Override
 	void draw(Graphics g) {
 		// draw the laptop itself

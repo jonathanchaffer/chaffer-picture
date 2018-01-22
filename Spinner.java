@@ -1,3 +1,14 @@
+
+/**
+ * Spinner.java
+ * Author: Jonathan Chaffer
+ * Date: January 22, 2018
+ * Version: 1.0
+ * 
+ * A class that models a fidget spinner.
+ *
+ */
+
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -16,6 +27,16 @@ public class Spinner extends DeskObject {
 	private Timer timer;
 
 	// constructors
+	/**
+	 * Constructor for objects of class Spinner.
+	 * 
+	 * @param x
+	 *            The x-position.
+	 * @param y
+	 *            The y-position.
+	 * @param color
+	 *            The color.
+	 */
 	public Spinner(int x, int y, Color color) {
 		super(x, y);
 		this.color = color;
@@ -28,12 +49,24 @@ public class Spinner extends DeskObject {
 	}
 
 	// overrides
+	/**
+	 * Checks whether the spinner contains the mouse.
+	 * 
+	 * @return true If the spinner contains the mouse.
+	 * @return false If the spinner does not contain the mouse.
+	 */
 	@Override
 	boolean containsMouse() {
 		return (getMouseX() >= getX() - 0.5 * diameter && getMouseX() <= getX() + 0.5 * diameter)
 				&& (getMouseY() >= getY() - 0.5 * diameter && getMouseY() <= getY() + 0.5 * diameter);
 	}
 
+	/**
+	 * Draws the spinner.
+	 * 
+	 * @param g
+	 *            Graphics object to use.
+	 */
 	@Override
 	void draw(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
@@ -76,6 +109,10 @@ public class Spinner extends DeskObject {
 	}
 
 	// mutators
+	/**
+	 * If spinning is true, add 10 to angle. If angle exceeds 360, set it back
+	 * to 0.
+	 */
 	public void spin() {
 		if (spinning) {
 			if (angle < 360) {
@@ -86,8 +123,11 @@ public class Spinner extends DeskObject {
 		}
 	}
 
+	/**
+	 * If spinning is true, set it to false. If spinning is false, set it to
+	 * true.
+	 */
 	public void toggle() {
-		System.out.println("toggled");
 		if (spinning) {
 			spinning = false;
 		} else {
@@ -96,7 +136,16 @@ public class Spinner extends DeskObject {
 	}
 
 	// private classes
+	/**
+	 * Class that handles timer events on the Spinner.
+	 */
 	private class SpinHandler implements ActionListener {
+		/**
+		 * Handler for timer event. Calls the spinner's spin() method.
+		 * 
+		 * @param e
+		 *            The ActionEvent.
+		 */
 		public void actionPerformed(ActionEvent e) {
 			spin();
 		}
